@@ -4,7 +4,7 @@
 
 react-todo-app
 
-> In this project we do basic arithmetic operation using react-redux. with nice looking UI design
+> In this project we do add task to our webpage. with nice looking UI design
 
 ## Built With
 
