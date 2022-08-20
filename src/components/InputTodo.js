@@ -1,50 +1,5 @@
-import React, { useState } from "react"
-const InputTodo = (props) => {
-  const [inputText, setInputText] = useState({
-    title: "",
-  })
-
-  const onChange = e => {
-    setInputText({
-      ...inputText,
-      [e.target.name]: e.target.value,
-    })
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if(inputText.title.trim()) {
-      props.addTodoProps(inputText.title);
-      setInputText({
-        title: "",
-      })
-    } else {
-      alert("Please write item")
-    } 
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="form-container">
-      <input
-        type="text"
-        className="input-text"
-        placeholder="Add todo..."
-        value={inputText.title}
-        name="title"          
-        onChange={onChange}
-      />
-      <button className="input-submit">
-              </button>
-    </form>
-  )
-}
-
-export default InputTodo
-/*
-<FaPlusCircle style={{ color: "darkcyan", fontSize: "20px", marginTop: "2px" }}/>
-
+/* eslint-disable */
 import React, { useState } from 'react';
-
 
 const InputTodo = (props) => {
   const [inputText, setInputText] = useState({
@@ -57,7 +12,15 @@ const InputTodo = (props) => {
       [e.target.name]: e.target.value,
     });
   };
+  /**  handleSubmit = (event) => {
+    event.preventDefault();
 
+    const {onSearch} = this.props
+    const {value} = this.query
+    onSearch(value)
+
+    event.target.blur();
+} */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputText.title.trim()) {
@@ -69,64 +32,22 @@ const InputTodo = (props) => {
       alert('Please write item');
     }
   };
+
   return (
+    /* eslint jsx-a11y/label-has-associated-control: ["error", { assert: "either" } ] */
     <form onSubmit={handleSubmit} className="form-container">
       <input
         type="text"
         className="input-text"
-        placeholder="Add Todo..."
+        placeholder="Add todo..."
         value={inputText.title}
         name="title"
         onChange={onChange}
       />
-      <button className="input-submit">Submit</button>
+      {/* eslint jsx-a11y/label-has-associated-control: ["error", { assert: "either" } ] */}
+      <button type="button" className="input-submit">click</button>
     </form>
   );
 };
 
 export default InputTodo;
-*/
-//import { FaPlusCircle } from "react-icons/fa";
-
-/*
-import React, { Component } from "react"
-
-class InputTodo extends Component {
-    state = {
-        title: ""
-      };
-      onChange = e => {
-        this.setState({
-          [e.target.name]: e.target.value,
-        }) 
-           };
-
-           handleSubmit = e => {
-            e.preventDefault()
-            if (this.state.title.trim()) {
-              this.props.addTodoProps(this.state.title)
-              this.setState({
-                title: "",
-              })
-            } else {
-              alert("Please write item")
-            }
-          }
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} className="form-container">
-  <input
-    type="text"
-    className="input-text"
-    placeholder="Add todo..."
-    value={this.state.title}
-    name="title"
-    onChange={this.onChange}
-  />
-  <button className="input-submit">Submit</button>
-</form>
-    )
-  }
-}
-export default InputTodo
-*/

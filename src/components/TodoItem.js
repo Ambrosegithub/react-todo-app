@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styling from './TodoItem.module.css';
-
+// disabled react/destructuring-assignment
 const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
 
@@ -20,7 +20,7 @@ const TodoItem = (props) => {
     opacity: 0.4,
     textDecoration: 'line-through',
   };
-
+  // disabled react/destructuring-assignment
   const { completed, id, title } = props.todo;
 
   const viewMode = {};
@@ -33,7 +33,6 @@ const TodoItem = (props) => {
   }
 
   useEffect(() => () => {
-    console.log('Cleaning up...');
   }, []);
 
   return (
@@ -45,7 +44,7 @@ const TodoItem = (props) => {
           checked={completed}
           onChange={() => props.handleChangeProps(id)}
         />
-        <button onClick={() => props.deleteTodoProps(id)}>Delete</button>
+        <button type="button" onClick={() => props.deleteTodoProps(id)}>Delete</button>
         <span style={completed ? completedStyle : null}>{title}</span>
       </div>
       <input
@@ -60,7 +59,6 @@ const TodoItem = (props) => {
       />
     </li>
   );
-
 };
 
 export default TodoItem;
